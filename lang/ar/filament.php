@@ -1,0 +1,90 @@
+<?php
+
+return [
+    // Navigation
+    'dashboard' => 'لوحة التحكم',
+    'products' => 'المنتجات',
+    'categories' => 'الأقسام',
+    'orders' => 'الطلبات',
+    'users' => 'المستخدمين',
+    'contact_messages' => 'رسائل التواصل',
+    'site_settings' => 'إعدادات الموقع',
+    'sliders' => 'السلايدر',
+
+    // Common
+    'name' => 'الاسم',
+    'description' => 'الوصف',
+    'price' => 'السعر',
+    'discount_price' => 'سعر الخصم',
+    'status' => 'الحالة',
+    'active' => 'نشط',
+    'inactive' => 'غير نشط',
+    'created_at' => 'تاريخ الإنشاء',
+    'updated_at' => 'تاريخ التحديث',
+    'actions' => 'الإجراءات',
+    'save' => 'حفظ',
+    'cancel' => 'إلغاء',
+    'delete' => 'حذف',
+    'edit' => 'تعديل',
+    'view' => 'عرض',
+    'search' => 'بحث',
+    'filter' => 'تصفية',
+    'export' => 'تصدير',
+    'import' => 'استيراد',
+
+    // Product
+    'sku' => 'رمز المنتج',
+    'category' => 'القسم',
+    'file_format' => 'صيغة الملف',
+    'file_size' => 'حجم الملف (ميجابايت)',
+    'specifications' => 'المواصفات',
+    'is_featured' => 'مميز',
+    'downloads_count' => 'عدد التحميلات',
+    'views_count' => 'عدد المشاهدات',
+    'images' => 'الصور',
+    '3d_files' => 'ملفات الثري دي',
+    'preview_images' => 'صور المعاينة',
+
+    // Order
+    'order_number' => 'رقم الطلب',
+    'total_amount' => 'المبلغ الإجمالي',
+    'payment_status' => 'حالة الدفع',
+    'payment_method' => 'طريقة الدفع',
+    'order_status' => 'حالة الطلب',
+    'pending' => 'قيد الانتظار',
+    'processing' => 'قيد المعالجة',
+    'completed' => 'مكتمل',
+    'cancelled' => 'ملغي',
+    'refunded' => 'مسترد',
+    'paid' => 'مدفوع',
+    'failed' => 'فشل',
+
+    // Contact
+    'email' => 'البريد الإلكتروني',
+    'phone' => 'الهاتف',
+    'subject' => 'الموضوع',
+    'message' => 'الرسالة',
+    'admin_reply' => 'رد الإدارة',
+    'replied_at' => 'تاريخ الرد',
+    'new' => 'جديد',
+    'read' => 'مقروء',
+    'replied' => 'تم الرد',
+    'archived' => 'مؤرشف',
+
+    // Slider
+    'title' => 'العنوان',
+    'subtitle' => 'العنوان الفرعي',
+    'button_text' => 'نص الزر',
+    'button_link' => 'رابط الزر',
+    'sort_order' => 'الترتيب',
+    'slider_image' => 'صورة السلايدر',
+
+    // Settings
+    'key' => 'المفتاح',
+    'value' => 'القيمة',
+    'type' => 'النوع',
+    'group' => 'المجموعة',
+    'general' => 'عام',
+    'homepage' => 'الصفحة الرئيسية',
+    'footer' => 'التذييل',
+];

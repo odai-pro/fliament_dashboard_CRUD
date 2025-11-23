@@ -1,0 +1,90 @@
+<?php
+
+return [
+    // Navigation
+    'dashboard' => 'Dashboard',
+    'products' => 'Products',
+    'categories' => 'Categories',
+    'orders' => 'Orders',
+    'users' => 'Users',
+    'contact_messages' => 'Contact Messages',
+    'site_settings' => 'Site Settings',
+    'sliders' => 'Sliders',
+
+    // Common
+    'name' => 'Name',
+    'description' => 'Description',
+    'price' => 'Price',
+    'discount_price' => 'Discount Price',
+    'status' => 'Status',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
+    'created_at' => 'Created At',
+    'updated_at' => 'Updated At',
+    'actions' => 'Actions',
+    'save' => 'Save',
+    'cancel' => 'Cancel',
+    'delete' => 'Delete',
+    'edit' => 'Edit',
+    'view' => 'View',
+    'search' => 'Search',
+    'filter' => 'Filter',
+    'export' => 'Export',
+    'import' => 'Import',
+
+    // Product
+    'sku' => 'SKU',
+    'category' => 'Category',
+    'file_format' => 'File Format',
+    'file_size' => 'File Size (MB)',
+    'specifications' => 'Specifications',
+    'is_featured' => 'Featured',
+    'downloads_count' => 'Downloads',
+    'views_count' => 'Views',
+    'images' => 'Images',
+    '3d_files' => '3D Files',
+    'preview_images' => 'Preview Images',
+
+    // Order
+    'order_number' => 'Order Number',
+    'total_amount' => 'Total Amount',
+    'payment_status' => 'Payment Status',
+    'payment_method' => 'Payment Method',
+    'order_status' => 'Order Status',
+    'pending' => 'Pending',
+    'processing' => 'Processing',
+    'completed' => 'Completed',
+    'cancelled' => 'Cancelled',
+    'refunded' => 'Refunded',
+    'paid' => 'Paid',
+    'failed' => 'Failed',
+
+    // Contact
+    'email' => 'Email',
+    'phone' => 'Phone',
+    'subject' => 'Subject',
+    'message' => 'Message',
+    'admin_reply' => 'Admin Reply',
+    'replied_at' => 'Replied At',
+    'new' => 'New',
+    'read' => 'Read',
+    'replied' => 'Replied',
+    'archived' => 'Archived',
+
+    // Slider
+    'title' => 'Title',
+    'subtitle' => 'Subtitle',
+    'button_text' => 'Button Text',
+    'button_link' => 'Button Link',
+    'sort_order' => 'Sort Order',
+    'slider_image' => 'Slider Image',
+
+    // Settings
+    'key' => 'Key',
+    'value' => 'Value',
+    'type' => 'Type',
+    'group' => 'Group',
+    'general' => 'General',
+    'homepage' => 'Homepage',
+    'footer' => 'Footer',
+];
