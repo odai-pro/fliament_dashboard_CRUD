@@ -15,6 +15,8 @@ use Filament\Tables\Table;
 
 use Illuminate\Database\Eloquent\Builder;
 
+use Filament\Tables\Columns\ImageColumn;
+
 class ProductsTable
 {
     public static function configure(Table $table): Table
@@ -22,10 +24,31 @@ class ProductsTable
         return $table
             ->modifyQueryUsing(fn (Builder $query) => $query->with(['category', 'media']))
             ->columns([
-                TextColumn::make('category_id')
+                ImageColumn::make('image')
+                    ->label(__('products.attributes.image'))
+                    ->state(function ($record) {
+                        $firstMedia = $record->getFirstMedia('images');
+                        if ($firstMedia) {
+                            $url = $firstMedia->getUrl();
+                            // Ensure absolute URL
+                            if (!filter_var($url, FILTER_VALIDATE_URL)) {
+                                $url = url($url);
+                            }
+                            return $url;
+                        }
+                        return null;
+                    })
+                    ->circular()
+                    ->defaultImageUrl(url('/images/placeholder.jpg'))
+                    ->extraAttributes(['class' => 'object-cover']),
+                TextColumn::make('name')
                     ->translateLabel()
-                    ->numeric()
+                    ->searchable()
                     ->sortable(),
+                TextColumn::make('category.name')
+                    ->label(__('products.attributes.category_id')) // Use category name instead of ID for better UX
+                    ->sortable(),
+
                 TextColumn::make('sku')
                     ->label('SKU')
                     ->translateLabel()
@@ -33,6 +56,11 @@ class ProductsTable
                 TextColumn::make('price')
                     ->translateLabel()
                     ->money()
+                    ->sortable(),
+                TextColumn::make('weight')
+                    ->translateLabel()
+                    ->numeric()
+                    ->suffix(' g')
                     ->sortable(),
                 TextColumn::make('discount_price')
                     ->translateLabel()

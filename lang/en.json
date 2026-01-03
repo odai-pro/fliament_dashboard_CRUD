@@ -86,6 +86,7 @@
     "dashboard.stats.total_sales": "Total Sales",
     "dashboard.stats.pending_orders": "Pending Orders",
     "dashboard.stats.unread_messages": "Unread Messages",
+    "dashboard.stats.total_visits": "Unique Visits",
     "dashboard.charts.sales_over_time": "Sales Over Time",
     "dashboard.charts.sales": "Sales",
     "dashboard.latest_orders.title": "Latest Orders",

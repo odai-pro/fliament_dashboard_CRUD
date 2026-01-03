@@ -9,11 +9,12 @@ use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Spatie\Permission\Traits\HasRoles;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -24,6 +25,9 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'preferred_locale',
+        'prefers_dark_mode',
+        'layout_seed', // Added
     ];
 
     /**
@@ -45,16 +49,34 @@ class User extends Authenticatable implements FilamentUser
     {
         return [
             'email_verified_at' => 'datetime',
+            'otp_verified_at' => 'datetime',
+            'last_login_at' => 'datetime',
+            'prefers_dark_mode' => 'boolean',
             'password' => 'hashed',
+            'layout_seed' => 'integer', // Added
         ];
     }
 
-    /**
-     * Determine if the user can access the Filament panel.
-     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            if (is_null($user->layout_seed)) {
+                $user->layout_seed = rand(1, 1000000);
+            }
+        });
+    }
+
     public function canAccessPanel(\Filament\Panel $panel): bool
     {
-        return true; // يمكنك تخصيص هذا لاحقاً للتحكم بالصلاحيات
+        $allowedEmails = collect(explode(',', (string) env('ADMIN_EMAILS', 'oaa259@gmail.com')))
+            ->map(fn ($email) => trim($email))
+            ->filter()
+            ->all();
+
+        return in_array($this->email, $allowedEmails, true)
+            || $this->hasAnyRole(['super_admin', 'admin']);
     }
 
     /**

@@ -15,6 +15,6 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         // إعادة استخدام إعدادات اللوحة الموجودة في JewelaryPanelProvider
-        return (new JewelaryPanelProvider)->panel($panel);
+        return (new JewelaryPanelProvider($this->app))->panel($panel);
     }
 }

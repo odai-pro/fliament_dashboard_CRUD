@@ -5,6 +5,7 @@ namespace App\Filament\Widgets;
 use App\Models\ContactMessage;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Visit;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
@@ -33,7 +34,34 @@ class StatsOverview extends BaseWidget
 
             Stat::make(__('dashboard.stats.unread_messages'), ContactMessage::where('status', 'unread')->count())
                 ->icon('heroicon-o-envelope')
-                ->color('info'),
+                ->color('info')
+                ->description('Click to test notification')
+                ->descriptionIcon('heroicon-m-bell')
+                ->extraAttributes([
+                    'class' => 'cursor-pointer',
+                    'wire:click' => "dispatch('test-notification')",
+                ]),
+
+            Stat::make(__('dashboard.stats.total_visits'), Visit::count())
+                ->icon('heroicon-o-user-group')
+                ->color('secondary'),
         ];
+    }
+
+    protected $listeners = ['test-notification' => 'sendTestNotification'];
+
+    public function sendTestNotification()
+    {
+        $user = auth()->user();
+        $user->notify(new \App\Notifications\UserInteractionNotification(
+            'Test Notification',
+            'This is a test notification from the dashboard.',
+            url('/admin')
+        ));
+
+        \Filament\Notifications\Notification::make()
+            ->title('Test Notification Sent')
+            ->success()
+            ->send();
     }
 }

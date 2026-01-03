@@ -17,9 +17,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // إنشاء المستخدم إذا لم يكن موجوداً
+        User::firstOrCreate(
+            ['email' => 'test@example.com'],
+            [
+                'name' => 'Test User',
+            ]
+        );
+
+        // إنشاء الأقسام أولاً
+        $this->call([
+            CategorySeeder::class,
+            CategoryProductSeeder::class,
         ]);
     }
 }

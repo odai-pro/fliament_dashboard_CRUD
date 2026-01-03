@@ -65,6 +65,7 @@ class JewelaryPanelProvider extends PanelProvider
                 \App\Filament\Widgets\SalesChart::class,
                 \App\Filament\Widgets\LatestOrders::class,
                 \App\Filament\Widgets\LatestContactMessages::class,
+                \App\Filament\Widgets\TestNotificationWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

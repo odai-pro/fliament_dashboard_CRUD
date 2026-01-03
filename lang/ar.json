@@ -86,6 +86,7 @@
     "dashboard.stats.total_sales": "إجمالي المبيعات",
     "dashboard.stats.pending_orders": "طلبات معلقة",
     "dashboard.stats.unread_messages": "رسائل غير مقروءة",
+    "dashboard.stats.total_visits": "الزوار الفريدون",
     "dashboard.charts.sales_over_time": "المبيعات عبر الزمن",
     "dashboard.charts.sales": "المبيعات",
     "dashboard.latest_orders.title": "أحدث الطلبات",

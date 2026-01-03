@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-primary: var(--gold-primary);
+  --color-gold-secondary: var(--gold-secondary);
+  --color-gold-accent: var(--gold-accent);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-color: var(--border-color);
+  --color-glass-bg: var(--glass-bg);
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-arabic: var(--font-cairo), "Cairo", sans-serif;
+}
+
+:root {
+  /* Light Mode - Luxury Cream/Velvet */
+  --bg-primary: #F7F5F0;
+  --bg-secondary: #EBE8E0;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+
+  /* Gold - Warm & Rich */
+  --gold-primary: #C8A46D;
+  --gold-secondary: #D8B878;
+  --gold-accent: #AD8646;
+
+  --border-color: rgba(200, 164, 109, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --shadow-glow: 0 12px 40px rgba(200, 164, 109, 0.25);
+}
+
+[data-theme="dark"] {
+  /* Dark Mode - Deep Black/Gold */
+  --bg-primary: #050404;
+  --bg-secondary: #0A0A0A;
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+
+  /* Gold - Deeper Amber Glow */
+  --gold-primary: #D4AF76;
+  --gold-secondary: #E6C896;
+  --gold-accent: #B88A4A;
+
+  --border-color: rgba(255, 255, 255, 0.12);
+  --glass-bg: rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 12px 40px rgba(200, 164, 109, 0.15);
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans), sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), color 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  overflow-x: hidden;
+}
+
+/* Arabic RTL Support */
+[dir="rtl"] body {
+  font-family: var(--font-arabic), sans-serif;
+  direction: rtl;
+}
+
+/* Custom Utilities */
+.text-gold-gradient {
+  background: linear-gradient(to right, var(--gold-secondary), var(--gold-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-glow {
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 0 rgba(200, 164, 109, 0);
+  transition: all 0.5s ease;
+}
+
+.border-gold-glow:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 20px rgba(200, 164, 109, 0.3);
+}
+
+/* Theme Toggle Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* Perspective for 3D card effects */
+.perspective-1000 {
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+/* Image fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
